@@ -3,7 +3,7 @@ package com.wms.warehouse_management_system.Controller;
 import com.wms.warehouse_management_system.Entity.Product;
 import com.wms.warehouse_management_system.Service.ProductService;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,7 +19,7 @@ public class ProductController {
     }
 
     @PostMapping //create products
-    public Product createProduct(@RequestBody Product product)
+    public Product createProduct(@Valid @RequestBody Product product)
     {
         return productService.createProduct(product); //adds new product
     }
@@ -37,7 +37,8 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public Product updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct)
+    public Product updateProduct(@PathVariable Long id,
+                                 @Valid @RequestBody Product updatedProduct)
     {
         return productService.updateProduct(id, updatedProduct);
     }
