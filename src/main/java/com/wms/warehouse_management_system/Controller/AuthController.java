@@ -17,11 +17,16 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Map<String, String> login(@RequestParam String username) {
+    public Map<String, String> login(
+            @RequestParam String username,
+            @RequestParam String role) {
 
-        String token = jwtUtil.generateToken(username);
+        String token =
+                jwtUtil.generateToken(username, role);
 
-        Map<String, String> response = new HashMap<>();
+        Map<String, String> response =
+                new HashMap<>();
+
         response.put("token", token);
 
         return response;
