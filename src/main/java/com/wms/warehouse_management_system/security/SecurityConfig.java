@@ -38,8 +38,10 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-                        .requestMatchers("/auth/**")
-                        .permitAll()
+                        .requestMatchers(
+                                "/auth/**",
+                                "/qr/**"
+                        ).permitAll()
 
                         .requestMatchers("/products/**")
                         .hasAuthority("ADMIN")
