@@ -14,35 +14,94 @@ public class JwtUtil {
     private final String SECRET_KEY =
             "myverysecuresecretkeyforjwtauthentication123456";
 
-    public String generateToken(String username, String role) {
+    // Generate token
+    public String generateToken(
+            String username,
+            String role)
+    {
 
         return Jwts.builder()
 
-                .setSubject(username)
+                .setSubject(
+                        username
+                )
 
-                .claim("role", role)
+                .claim(
+                        "role",
+                        role
+                )
 
-                .setIssuedAt(new Date())
+                .setIssuedAt(
+                        new Date()
+                )
 
                 .setExpiration(
-                        new Date(System.currentTimeMillis()
-                                + 1000 * 60 * 60)
+
+                        new Date(
+
+                                System.currentTimeMillis()
+
+                                        +3600000
+                        )
                 )
 
                 .signWith(
+
                         SignatureAlgorithm.HS256,
+
                         SECRET_KEY
                 )
 
                 .compact();
+
     }
 
-    public Claims extractClaims(String token) {
+    // Validate token
+    public boolean validateToken(
+            String token)
+    {
+
+        try
+        {
+
+            Jwts.parser()
+
+                    .setSigningKey(
+                            SECRET_KEY
+                    )
+
+                    .parseClaimsJws(
+                            token
+                    );
+
+            return true;
+
+        }
+
+        catch(Exception e)
+        {
+
+            return false;
+
+        }
+
+    }
+
+    // Extract claims
+    public Claims extractClaims(
+            String token)
+    {
 
         return Jwts.parser()
-                .setSigningKey(SECRET_KEY)
-                .parseClaimsJws(token)
+
+                .setSigningKey(
+                        SECRET_KEY
+                )
+
+                .parseClaimsJws(
+                        token
+                )
+
                 .getBody();
     }
 }
-

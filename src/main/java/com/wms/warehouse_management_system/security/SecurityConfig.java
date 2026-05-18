@@ -40,7 +40,9 @@ public class SecurityConfig {
 
                         .requestMatchers(
                                 "/auth/**",
-                                "/qr/**"
+                                "/qr/**",
+                                "/barcode/**",
+                                "/token/**"
                         ).permitAll()
 
                         .requestMatchers("/products/**")
