@@ -10,6 +10,7 @@ public class StorageBins
     private Long id; // Primary key for bin
 
     private String binCode;// stores bin code
+    private Integer capacity; // maximum capacity of storage bin
 
     //Many StorageBins belong to ONE Warehouse
     @ManyToOne
@@ -30,6 +31,15 @@ public class StorageBins
     }
 
     // getters and setters
+
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
 
     public Long getId() {
         return id;
