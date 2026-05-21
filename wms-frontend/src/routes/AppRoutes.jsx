@@ -10,20 +10,15 @@ Route
 
 from "react-router-dom";
 
-import DashboardPage
-from "../pages/DashboardPage";
+import DashboardPage from "../pages/DashboardPage";
 
-import LoginPage
-from "../pages/LoginPage";
+import LoginPage from "../pages/LoginPage";
 
-import ProductPage
-from "../pages/ProductPage";
+import ProductPage from "../pages/ProductPage";
 
-import WarehousePage
-from "../pages/WarehousePage";
+import WarehousePage from "../pages/WarehousePage";
 
-import InventoryPage
-from "../pages/InventoryPage";
+import InventoryPage from "../pages/InventoryPage";
 
 function AppRoutes()
 {

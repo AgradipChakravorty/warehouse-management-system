@@ -6,20 +6,20 @@ return(
 <nav
 style={{
 
-background:"#1f2937",
+background:"#111827",
 
-padding:"15px",
+padding:"18px",
 
-color:"white"
+color:"white",
+
+fontSize:"20px",
+
+fontWeight:"bold"
 
 }}
 >
 
-<h2>
-
 Warehouse Management System
-
-</h2>
 
 </nav>
 

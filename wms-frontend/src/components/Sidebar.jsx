@@ -1,8 +1,4 @@
-import {
-
-Link
-
-}
+import { Link }
 
 from "react-router-dom";
 
@@ -12,24 +8,38 @@ function Sidebar()
 return(
 
 <div
-
 style={{
 
-width:"200px",
+width:"220px",
 
 height:"100vh",
 
-background:"#e5e7eb",
+background:"#1f2937",
 
 padding:"20px"
 
 }}
-
 >
+
+<h3
+style={{
+color:"white"
+}}
+>
+
+Menu
+
+</h3>
 
 <p>
 
-<Link to="/">
+<Link
+to="/"
+
+style={{
+color:"white"
+}}
+>
 
 Dashboard
 
@@ -39,7 +49,13 @@ Dashboard
 
 <p>
 
-<Link to="/products">
+<Link
+to="/products"
+
+style={{
+color:"white"
+}}
+>
 
 Products
 
@@ -49,7 +65,13 @@ Products
 
 <p>
 
-<Link to="/warehouse">
+<Link
+to="/warehouse"
+
+style={{
+color:"white"
+}}
+>
 
 Warehouse
 
@@ -59,7 +81,13 @@ Warehouse
 
 <p>
 
-<Link to="/inventory">
+<Link
+to="/inventory"
+
+style={{
+color:"white"
+}}
+>
 
 Inventory
 
