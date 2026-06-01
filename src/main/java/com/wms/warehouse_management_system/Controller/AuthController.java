@@ -21,14 +21,37 @@ public class AuthController {
             @RequestParam String username,
             @RequestParam String role) {
 
-        String token =
-                jwtUtil.generateToken(username, role);
-
         Map<String, String> response =
                 new HashMap<>();
 
-        response.put("token", token);
+        String accessToken =
+                jwtUtil.generateToken(
+                        username,
+                        role
+                );
+
+        String refreshToken =
+                jwtUtil.generateRefreshToken(
+                        username
+                );
+
+        response.put(
+                "accessToken",
+                accessToken
+        );
+
+        response.put(
+                "refreshToken",
+                refreshToken
+        );
 
         return response;
+    }
+
+    @PostMapping("/refresh")
+    public String refreshToken(
+            @RequestParam String refreshToken) {
+
+        return "Refresh Token Working";
     }
 }
